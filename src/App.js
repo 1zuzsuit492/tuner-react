@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+//dependencies
+import { Route, Routes } from 'react-router-dom';
+import './App.css'
+//pages&components
+import NavBar from './Components/NavBar';
+import Songs from './Pages/Songs';
+import SongEdit from './Pages/SongEdit';
+import SongIndex from './Pages/SongIndex';
+import NewSong from './Pages/NewSong';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <header>TUNER APP</header>
+      <NavBar />
+      <main>
+        <Routes>
+          <Route exact path ="/" element={<Songs />} />
+          <Route path ="/:id" element={<SongIndex />} />
+          <Route path ="/:id/edit" element={<SongEdit />} />
+          <Route path ="/new" element={<NewSong />} />
+        </Routes>
+        <aside></aside>
+        </main>
+        <footer></footer>
     </div>
   );
 }
